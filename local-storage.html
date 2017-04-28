@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<h1 id="capture"></h1>
+	<script type="text/javascript">
+		(function(){
+
+			var existsLS = window["localStorage"] != null;
+			console.log(existsLS);
+
+
+			if (typeof(Storage) !== "undefined") {
+				
+				localStorage.setItem("NAME","VALUE");
+
+				var capture = document.querySelector("#capture");
+
+				capture.innerHTML = localStorage.getItem("NAME");
+
+				setTimeout(function(){
+
+					localStorage.removeItem("NAME");
+					capture.innerHTML = "REMOVED ITEM";
+				}, 3000);
+
+			}
+
+		})();
+	</script>
+</body>
+</html>
